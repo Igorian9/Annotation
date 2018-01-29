@@ -8,8 +8,12 @@ public class Main {
         Method[] methods = myClass.getDeclaredMethods();
         for (Method method : methods) {
             if (method.isAnnotationPresent(MyAnnotation.class)) {
+                try {
                     MyAnnotation ma = method.getAnnotation(MyAnnotation.class);
                     System.out.println(ma.a() + " " + ma.b());
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
             }
 
         }
